@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Negar Shojaei | Senior AI & Software Engineer</title>
+    <meta name="description" content="Portfolio of Negar Shojaei - Senior AI Engineer & Full-Stack Developer">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+        1. CONFIGURATION & RESET
+        ========================================
+        */
+        :root {
+            --bg-body: #050505;
+            --bg-card: #121212;
+            --bg-card-hover: #1e1e1e;
+            --primary: #ffc107; /* Gold */
+            --primary-dim: rgba(255, 193, 7, 0.1);
+            --text-main: #ffffff;
+            --text-muted: #a1a1aa;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --container-max: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition-smooth); }
+        ul { list-style: none; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-body); }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+        /* Typography Utilities */
+        .text-gold { color: var(--primary); }
+        .heading-font { font-family: 'Space Grotesk', sans-serif; }
+        
+        /* ========================================
+        2. NAVIGATION BAR
+        ========================================
+        */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-main);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* ========================================
+        3. HERO SECTION
+        ========================================
+        */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(255,193,7,0.06) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+        }
+
+        .hero-container {
+            max-width: var(--container-max);
+            width: 100%;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero-text h1 {
+            font-size: 4.8rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .typewriter-wrapper {
+            font-size: 1.6rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            display: flex;
+            align-items: center;
+        }
+
+        .cursor {
+            width: 3px;
+            height: 1.6rem;
+            background-color: var(--primary);
+            margin-left: 8px;
+            animation: blink 1s infinite;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            margin-top: 45px;
+        }
+
+        .btn {
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-gold {
+            background-color: var(--primary);
+            color: #000;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-gold:hover {
+            background-color: transparent;
+            color: var(--primary);
+            box-shadow: 0 0 25px var(--primary-dim);
+            transform: translateY(-3px);
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-glass:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .hero-img-container {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .profile-frame {
+            width: 500px; /* Even larger */
+            height: 500px; 
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensures face is visible */
+            object-position: center top; 
+            filter: grayscale(10%);
+            transition: var(--transition-smooth);
+        }
+
+        .profile-frame:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+        }
+
+        .profile-frame:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 40px rgba(255, 193, 7, 0.15);
+        }
+
+        /* ========================================
+        4. SECTIONS (Shared Styles)
+        ========================================
+        */
+        section {
+            padding: 140px 0;
+        }
+
+        .section-header {
+            margin-bottom: 80px;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        /* ========================================
+        5. ABOUT SECTION (Redesigned - Magazine Style)
+        ========================================
+        */
+        .about-quote {
+            font-size: 2rem;
+            font-weight: 300;
+            line-height: 1.4;
+            color: #fff;
+            margin-bottom: 50px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .about-quote span {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .about-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .about-cols p {
+            color: #a1a1aa;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .about-stats-row {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 40px 0;
+        }
+
+        .stat-minimal {
+            text-align: left;
+        }
+
+        .stat-minimal-num {
+            font-size: 3.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-minimal-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ========================================
+        6. EXPERIENCE (Timeline)
+        ========================================
+        */
+        .timeline {
+            position: relative;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), rgba(255,255,255,0.05));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            padding-bottom: 70px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--bg-body);
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .timeline-date {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-card {
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .timeline-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateX(10px);
+        }
+
+        .timeline-title {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .timeline-company {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline-desc li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            color: #d4d4d8;
+            font-size: 1rem;
+        }
+
+        .timeline-desc li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* ========================================
+        7. SKILLS
+        ========================================
+        */
+        .skills-grid-wrapper {
+            display: grid;
+            gap: 50px;
+        }
+
+        .skill-category-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            transition: var(--transition-smooth);
+        }
+
+        .skill-category-box:hover {
+            border-color: var(--primary);
+            background: var(--bg-card-hover);
+        }
+
+        .skill-head {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-head i { color: var(--primary); }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tag {
+            background: rgba(255, 193, 7, 0.05);
+            border: 1px solid var(--border-color);
+            color: #ccc;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+            cursor: default;
+        }
+
+        .tag:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(255, 193, 7, 0.1);
+        }
+
+        /* ========================================
+        8. PUBLICATIONS
+        ========================================
+        */
+        .pub-wrapper {
+            display: grid;
+            gap: 25px;
+        }
+
+        .pub-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 35px;
+            border-radius: 16px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pub-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: var(--primary);
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .pub-card:hover {
+            transform: translateX(10px);
+            border-color: rgba(255,255,255,0.3);
+            background: var(--bg-card-hover);
+        }
+
+        .pub-card:hover::before {
+            opacity: 1;
+        }
+
+        .pub-status {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .pub-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+
+        .pub-meta {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* ========================================
+        9. FOOTER
+        ========================================
+        */
+        footer {
+            padding: 100px 0 50px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 100px;
+            background: #020202;
+            text-align: center;
+        }
+
+        .social-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            transition: var(--transition-smooth);
+            border: 1px solid transparent;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: #000;
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 0 20px var(--primary-dim);
+        }
+
+        /* ========================================
+        10. ANIMATIONS & RESPONSIVE
+        ========================================
+        */
+        @keyframes blink { 50% { opacity: 0; } }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 992px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 50px;
+            }
+            .hero-img-container { justify-content: center; }
+            .hero-cta { justify-content: center; }
+            .typewriter-wrapper { justify-content: center; }
+            
+            .about-cols { grid-template-columns: 1fr; gap: 30px; }
+            .about-stats-row { flex-wrap: wrap; gap: 30px; justify-content: center; text-align: center; }
+            .stat-minimal { text-align: center; min-width: 140px; }
+            
+            .profile-frame { width: 350px; height: 350px; }
+            .hero-text h1 { font-size: 3.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .section-title { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .profile-frame { width: 300px; height: 300px; }
+            .timeline::before { left: 0; }
+            .timeline-item { padding-left: 40px; }
+            .stat-minimal-num { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo heading-font">Negar<span class="text-gold">.</span></a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#publications" class="nav-link">Publications</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h3>Hello, Welcome</h3>
+                <h1 class="heading-font">Negar Shojaei</h1>
+                <div class="typewriter-wrapper heading-font">
+                    I am a <span id="typing-text" class="text-gold" style="margin-left: 10px;"></span><span class="cursor"></span>
+                </div>
+                <p class="text-muted" style="font-size: 1.1rem; max-width: 600px;">
+                    Senior AI & Software Engineer building scalable machine learning systems and bridging the gap between advanced research and production-ready applications.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-gold">Let's Talk <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="btn btn-glass">Download CV <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+            <div class="hero-img-container">
+                <div class="profile-frame">
+                    <img src="images/profile.png" alt="Negar Shojaei">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="nav-container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">01. Biography</span>
+                <h2 class="section-title heading-font">About Me</h2>
+            </div>
+            
+            <div class="fade-in-up">
+                <div class="about-quote">
+                    "I am passionate about delivering high-impact solutions that serve millions of users, <span>bridging the gap</span> between advanced AI research and production-ready systems."
+                </div>
+
+                <div class="about-cols">
+                    <p>
+                        Innovative AI & Software Engineer with a Master's in Artificial Intelligence and Robotics, and extensive experience building scalable machine learning systems and cutting-edge AI solutions. I have a proven track record in designing, deploying, and optimizing large-scale software and LLM-based applications.
+                    </p>
+                    <p>
+                        My background includes significant work in diagnostic systems, fraud detection, and automated monitoring. I thrive in cross-functional teams and am dedicated to continuous learning in the fast-evolving field of AI. I was born in 1997 and am fluent in English and Swedish.
+                    </p>
+                </div>
+
+                <div class="about-stats-row">
+                    <div class="stat-minimal">
+                        <span class="stat-minimal-num">MSc</span>
+                        <span class="stat-minimal-label">AI & Robotics <br> Persian Gulf University</span>
+                    </div>
+                    <div class="stat-minimal">
+                        <span class="stat-minimal-num">10+</span>
+                        <span class="stat-minimal-label">Years of Experience <br> in Software & AI</span>
+                    </div>
+                    <div class="stat-minimal">
+                        <span class="stat-minimal-num">3</span>
+                        <span class="stat-minimal-label">Publications <br> in Medical AI</span>
+                    </div>
+                    <div class="stat-minimal">
+                        <span class="stat-minimal-num">2</span>
+                        <span class="stat-minimal-label">Languages <br> English & Swedish</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" style="background-color: #0a0a0a;">
+        <div class="nav-container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">02. Career Path</span>
+                <h2 class="section-title heading-font">Work Experience</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item fade-in-up">
+                    <span class="timeline-date">Apr 2025 - Present</span>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title heading-font">Machine Learning Engineer</h3>
+                        <div class="timeline-company"><i class="fas fa-building text-gold"></i> Day Insurance | Tehran, Iran</div>
+                        <ul class="timeline-desc">
+                            <li>Designed and deployed advanced AI systems for insurance fraud detection, including a duplicate medical invoice detection system.</li>
+                            <li>Developed AI-powered vehicle damage assessment systems capable of evaluating minor car damages from images.</li>
+                            <li>Built anomaly detection and predictive fraud scoring models to identify suspicious medical and auto claims.</li>
+                            <li>Optimized model performance with feature engineering, hyperparameter tuning, and continuous monitoring.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in-up">
+                    <span class="timeline-date">2022 - 2025</span>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title heading-font">AI Researcher</h3>
+                        <div class="timeline-company"><i class="fas fa-university text-gold"></i> Persian Gulf University | Bushehr, Iran</div>
+                        <ul class="timeline-desc">
+                            <li>Developed "AI Doctor Pharyngitis" using Deep Learning (CNNs, U-Nets).</li>
+                            <li>Collaborated with Bushehr Nuclear Medicine Hospital under Dr. Majid Asadi on projects for lymph node cancer detection.</li>
+                            <li>Collaborated with University of Tokyo, Harada-Kurose-Mukuta Lab, on projects related to pharyngitis detection.</li>
+                            <li>Served as Teaching Assistant in Image Processing course, mentoring students on practical AI applications.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in-up">
+                    <span class="timeline-date">2021 - 2024</span>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title heading-font">Machine Learning Engineer</h3>
+                        <div class="timeline-company"><i class="fas fa-industry text-gold"></i> Parisian Petroleum | Lamerd, Iran</div>
+                        <ul class="timeline-desc">
+                            <li>Developed an HSE monitoring system for the refinery, capable of detecting hazardous situations in real-time, embedded on quadcopters.</li>
+                            <li>Built predictive maintenance models to detect equipment failures and component anomalies using time-series analysis.</li>
+                            <li>Designed data pipelines for collecting, cleaning, and analyzing sensor and operational data from refinery machinery.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in-up">
+                    <span class="timeline-date">2017 - 2020</span>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title heading-font">Software Engineer</h3>
+                        <div class="timeline-company"><i class="fas fa-laptop-code text-gold"></i> Caspian | Shahrekord, Iran</div>
+                        <ul class="timeline-desc">
+                            <li>Designed, developed, and maintained web and desktop applications using Python, Java, and SQL to support internal business processes.</li>
+                            <li>Implemented backend systems, APIs, and database solutions ensuring reliability and scalability.</li>
+                            <li>Introduced coding best practices, code reviews, and version control using Git.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="nav-container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">03. Expertise</span>
+                <h2 class="section-title heading-font">Technical Skills</h2>
+            </div>
+
+            <div class="skills-grid-wrapper">
+                <div class="skill-category-box fade-in-up">
+                    <div class="skill-head"><i class="fas fa-brain"></i> Programming, AI & Data Science</div>
+                    <div class="tags">
+                        <span class="tag">Python</span><span class="tag">Java</span><span class="tag">MATLAB</span><span class="tag">R</span>
+                        <span class="tag">Kotlin</span><span class="tag">Bash</span>
+                        <span class="tag">Image Processing</span><span class="tag">Deep Learning</span><span class="tag">Computer Vision</span>
+                        <span class="tag">NLP</span><span class="tag">LLMs (OpenAI, Gemini, LLaMA)</span>
+                        <span class="tag">Neural Networks (CNN, RNN, LSTM, U-Net)</span>
+                        <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">Scikit-learn</span>
+                        <span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span>
+                        <span class="tag">Predictive Modeling</span><span class="tag">Anomaly Detection</span>
+                        <span class="tag">Risk Scoring</span><span class="tag">Fraud Detection</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-box fade-in-up">
+                    <div class="skill-head"><i class="fas fa-layer-group"></i> Full-Stack & Frontend</div>
+                    <div class="tags">
+                        <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript (ES6+)</span>
+                        <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Next.js</span>
+                        <span class="tag">Redux Toolkit</span><span class="tag">Tailwind CSS</span>
+                        <span class="tag">REST API Integration</span><span class="tag">SPA Development</span>
+                        <span class="tag">Responsive UI</span><span class="tag">UI/UX Fundamentals</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-box fade-in-up">
+                    <div class="skill-head"><i class="fas fa-server"></i> Backend & Architecture</div>
+                    <div class="tags">
+                        <span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">FastAPI</span>
+                        <span class="tag">Python</span><span class="tag">RESTful API Design</span>
+                        <span class="tag">Auth (JWT, OAuth2)</span><span class="tag">Microservices</span>
+                        <span class="tag">Async Programming</span><span class="tag">API Security</span>
+                        <span class="tag">MVC</span><span class="tag">Clean Architecture</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-box fade-in-up">
+                    <div class="skill-head"><i class="fas fa-database"></i> Database, Cloud & DevOps</div>
+                    <div class="tags">
+                        <span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">MongoDB</span>
+                        <span class="tag">Redis</span><span class="tag">SQL Analytics</span><span class="tag">ORM (Prisma, SQLAlchemy)</span>
+                        <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Linux</span>
+                        <span class="tag">CI/CD Pipelines</span><span class="tag">Nginx</span><span class="tag">Scalable Systems</span>
+                        <span class="tag">MetaBase</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-box fade-in-up">
+                    <div class="skill-head"><i class="fas fa-network-wired"></i> Networking, Agile & IoT</div>
+                    <div class="tags">
+                        <span class="tag">Git & GitHub</span><span class="tag">Jira</span><span class="tag">Scrum</span>
+                        <span class="tag">Kanban</span><span class="tag">Clean Code</span><span class="tag">Testing</span>
+                        <span class="tag">CCNA</span><span class="tag">CISCO</span><span class="tag">Network Admin</span>
+                        <span class="tag">Embedded Systems</span><span class="tag">IoT Integration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" style="background-color: #0a0a0a;">
+        <div class="nav-container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">04. Research</span>
+                <h2 class="section-title heading-font">Selected Publications</h2>
+            </div>
+
+            <div class="pub-wrapper">
+                <div class="pub-card fade-in-up">
+                    <span class="pub-status">Published • 2025</span>
+                    <div class="pub-title heading-font">A publicly available pharyngitis dataset and baseline evaluations for bacterial or nonbacterial classification</div>
+                    <div class="pub-meta">N. Shojaei, H. Rostami, M. Barzegar, et al. | <em>Scientific Data</em></div>
+                </div>
+
+                <div class="pub-card fade-in-up">
+                    <span class="pub-status">Published • 2024</span>
+                    <div class="pub-title heading-font">Deep Learning Automated Differential Diagnosis of Pharyngitis using Smartphone Camera</div>
+                    <div class="pub-meta">N. Shojaei, A. Behrouzi, H. Rostami, et al. | <em>AIDSAI Conference, Bushehr, Iran</em></div>
+                </div>
+
+                <div class="pub-card fade-in-up" style="border-left: none; border-top: 3px solid #666;">
+                    <span class="pub-status" style="color: #ccc;">Under Review</span>
+                    <div class="pub-title heading-font">Automatic Pharyngitis Type Detection Based on Throat Images with Uncertain Labels</div>
+                    <div class="pub-meta">N. Shojaei, H. Rostami, et al. | <em>Nature Publishing Group UK</em></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="nav-container">
+            <h2 class="heading-font" style="font-size: 2.8rem; margin-bottom: 50px;">Let's Work Together</h2>
+            <div class="social-row">
+                <a href="mailto:Negar.shojaie125@gmail.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+989039695847" class="social-link" title="Phone"><i class="fas fa-phone"></i></a>
+                <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+            </div>
+            <p style="color: #555; font-size: 0.95rem;">
+                © 2025 Negar Shojaei. Built with <i class="fas fa-heart text-gold"></i> and Code.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Typewriter Effect
+        const textElement = document.getElementById('typing-text');
+        const phrases = ['AI Engineer', 'Full-Stack Developer', 'Researcher', 'Problem Solver'];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                setTimeout(type, 2000); 
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                setTimeout(type, 500); 
+            } else {
+                setTimeout(type, isDeleting ? 50 : 100);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', type);
+
+        // 2. Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // 3. Navbar Blur on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(5, 5, 5, 0.95)';
+                nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.background = 'rgba(5, 5, 5, 0.85)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
