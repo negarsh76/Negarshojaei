@@ -661,6 +661,50 @@
             .timeline-item { padding-left: 40px; }
             .stat-minimal-num { font-size: 2.5rem; }
         }
+        @media (max-width: 768px) {
+  /* Experience: full-width centered cards on mobile */
+  .timeline {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;   /* یه فضای کناری قشنگ */
+  }
+
+  /* خط عمودی تایم‌لاین رو موبایل مخفی کن */
+  .timeline::before {
+    display: none;
+  }
+
+  /* هر آیتم تایم‌لاین زیر هم و وسط */
+  .timeline-item {
+    padding-left: 0;          /* دیگه فضای سمت چپ لازم نیست */
+    padding-bottom: 28px;
+    text-align: center;       /* عنوان‌ها وسط */
+  }
+
+  /* دایره‌ی نقطه تایم‌لاین رو هم مخفی کن */
+  .timeline-item::after {
+    display: none;
+  }
+
+  /* کارت‌ها بزرگ و وسط چین */
+  .timeline-card {
+    width: 100%;
+    max-width: 560px;         /* روی موبایل‌های بزرگ خیلی پهن نشه */
+    margin: 0 auto;           /* وسط چین */
+    text-align: left;         /* متن توضیحات خواناتر: چپ/نرمال */
+  }
+
+  /* شرکت/لوکیشن اگر خواستی وسط بشه */
+  .timeline-company {
+    justify-content: center;
+  }
+
+  /* بولت‌ها تو موبایل مرتب‌تر */
+  .timeline-desc li {
+    padding-left: 18px;
+  }
+}
+
     </style>
 </head>
 <body>
@@ -992,5 +1036,6 @@
     </script>
 </body>
 </html>
+
 
 
