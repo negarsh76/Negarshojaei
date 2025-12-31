@@ -619,87 +619,116 @@
         }
 
         /* ========================================
-        10. ANIMATIONS & RESPONSIVE
-        ========================================
-        */
-        @keyframes blink { 50% { opacity: 0; } }
-        
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
+   10. ANIMATIONS & RESPONSIVE
+======================================== */
 
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+@keyframes blink { 
+  50% { opacity: 0; } 
+}
 
-        @media (max-width: 992px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 50px;
-            }
-            .hero-img-container { justify-content: center; }
-            .hero-cta { justify-content: center; }
-            .typewriter-wrapper { justify-content: center; }
-            
-            .about-cols { grid-template-columns: 1fr; gap: 30px; }
-            .about-stats-row { flex-wrap: wrap; gap: 30px; justify-content: center; text-align: center; }
-            .stat-minimal { text-align: center; min-width: 140px; }
-            
-            .profile-frame { width: 350px; height: 350px; }
-            .hero-text h1 { font-size: 3.5rem; }
-        }
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
 
-        @media (max-width: 768px) {
-            .section-title { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .profile-frame { width: 300px; height: 300px; }
-            .timeline::before { left: 0; }
-            .timeline-item { padding-left: 40px; }
-            .stat-minimal-num { font-size: 2.5rem; }
-        }
-        @media (max-width: 768px) {
-  /* Experience: full-width centered cards on mobile */
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Tablets ---------- */
+@media (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 50px;
+  }
+
+  .hero-img-container { justify-content: center; }
+  .hero-cta { justify-content: center; }
+  .typewriter-wrapper { justify-content: center; }
+
+  .about-cols { 
+    grid-template-columns: 1fr; 
+    gap: 30px; 
+  }
+
+  .about-stats-row { 
+    flex-wrap: wrap; 
+    gap: 30px; 
+    justify-content: center; 
+    text-align: center; 
+  }
+
+  .stat-minimal { 
+    text-align: center; 
+    min-width: 140px; 
+  }
+
+  .profile-frame { 
+    width: 350px; 
+    height: 350px; 
+  }
+
+  .hero-text h1 { 
+    font-size: 3.5rem; 
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+  .section-title { font-size: 2.5rem; }
+  .nav-links { display: none; }
+
+  .profile-frame { 
+    width: 300px; 
+    height: 300px; 
+  }
+
+  .stat-minimal-num { 
+    font-size: 2.5rem; 
+  }
+
+  /* ===== Work Experience (Timeline Mobile Fix) ===== */
+
   .timeline {
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 16px;   /* یه فضای کناری قشنگ */
+    padding: 0 16px;
   }
 
-  /* خط عمودی تایم‌لاین رو موبایل مخفی کن */
+  /* حذف خط عمودی تایم‌لاین */
   .timeline::before {
     display: none;
   }
 
-  /* هر آیتم تایم‌لاین زیر هم و وسط */
+  /* آیتم‌ها زیر هم و وسط */
   .timeline-item {
-    padding-left: 0;          /* دیگه فضای سمت چپ لازم نیست */
+    padding-left: 0;
     padding-bottom: 28px;
-    text-align: center;       /* عنوان‌ها وسط */
+    text-align: center;
   }
 
-  /* دایره‌ی نقطه تایم‌لاین رو هم مخفی کن */
+  /* حذف نقطه تایم‌لاین */
   .timeline-item::after {
     display: none;
   }
 
-  /* کارت‌ها بزرگ و وسط چین */
+  /* کارت‌های بزرگ و وسط چین */
   .timeline-card {
     width: 100%;
-    max-width: 560px;         /* روی موبایل‌های بزرگ خیلی پهن نشه */
-    margin: 0 auto;           /* وسط چین */
-    text-align: left;         /* متن توضیحات خواناتر: چپ/نرمال */
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: left;
   }
 
-  /* شرکت/لوکیشن اگر خواستی وسط بشه */
+  /* نام شرکت وسط چین */
   .timeline-company {
     justify-content: center;
   }
 
-  /* بولت‌ها تو موبایل مرتب‌تر */
+  /* بولت‌ها جمع‌وجورتر */
   .timeline-desc li {
     padding-left: 18px;
   }
@@ -1036,6 +1065,7 @@
     </script>
 </body>
 </html>
+
 
 
 
